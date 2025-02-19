@@ -146,7 +146,8 @@ A ICANN é uma corporação responsável pela alocação do espaço de endereço
 
 ### Modelo TCP/IP
 
-O modelo TCP/IP é um modelo de comunicação de rede que divide as funções de rede em camadas. O modelo TCP/IP é composto por quatro camadas:
+O modelo TCP/IP é um modelo de comunicação de rede que divide as funções de rede em camadas.  
+O modelo TCP/IP é composto por quatro camadas:
 
 | Camada | Descrição |
 | --- | --- |
@@ -159,6 +160,10 @@ O modelo TCP/IP é um modelo de comunicação de rede que divide as funções de
 
 ### Modelo OSI (Open Systems Interconnection)
 
+O modelo OSI é usado para projeto de redes de dados, especificações de operações e solução de problemas.  
+O modelo OSI é composto por sete camadas:
+
+
 || Camada | Descrição |
 | --- | --- | --- |
 | 7 | Aplicação | Contém protocolos usados para comunicações processo a processo. |
@@ -169,3 +174,58 @@ O modelo TCP/IP é um modelo de comunicação de rede que divide as funções de
 | 2 | Enlace de dados | Descreve métodos para a troca de quadros de dados entre os dispositivos em um meio físico comum. |
 | 1 | Física | Descreve os meios mecânicos, elétricos, funcionais e procedimentais para ativar, manter e desativar conexões físicas para uma transmissão de bits de e para um dispositivo de rede. |
 
+<br>
+ 
+### Comparação entre os modelos TCP/IP e OSI
+
+```mermaid
+flowchart LR
+    subgraph Modelo TCP/IP
+        A[Aplicação]
+        B[Transporte]
+        C[Internet]
+        D[Acesso à rede]
+    end
+
+    subgraph Modelo OSI
+        E[7-Aplicação] o--o A
+        F[6-Apresentação] o--o A
+        G[5-Sessão] o--o A
+        H[4-Transporte] o--o B
+        I[3-Rede] o--o C
+        J[2-Enlace de dados] o--o D
+        K[1-Física] o--o D
+    end
+
+```
+
+<br>
+
+## Camada de acesso
+
+### Ethernet Frame (Quadro Ethernet)
+
+| | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| Preamble | Start Frame Delimiter | Destination MAC Address | Source MAC Address | Length or Type | Data | FCS |
+| 7 bytes | 1 byte | 6 bytes | 6 bytes | 2 bytes | 46-1500 bytes | 4 bytes |
+
+<br>
+
+O quadro Ethernet é a unidade de dados transmitida pela rede Ethernet. O quadro Ethernet é composto por:
+
+- **Preamble**: Sincroniza os bits entre as placas NIC de origem e de destino.
+- **Start Frame Delimiter (SFD)**: O SFD é um padrão de bits que indica o início do quadro Ethernet.
+- **Destination MAC Address**: Endereço MAC do dispositivo que deve receber o quadro Ethernet.
+- **Source MAC Address**: Endereço MAC do dispositivo que enviou o quadro Ethernet.
+- **Length or Type**: Indica o tamanho do quadro Ethernet ou o tipo de dados transmitidos.
+- **Data**: Os dados são os dados transmitidos pela rede.
+- **FCS (Frame Check Sequence)**: O FCS é um valor de verificação de erros usado para verificar a integridade do quadro Ethernet.
+
+<br> 
+
+## Switches
+
+Os switches são dispositivos que encaminham quadros Ethernet entre dispositivos finais em uma rede. Os switches usam a tabela de endereços MAC para encaminhar quadros Ethernet.
+Os switches tomam a decisão de encaminhamento com base no endereço MAC de destino do quadro Ethernet.
+Os switches adicionam o endereço MAC de origem do quadro Ethernet à tabela de endereços MAC.
