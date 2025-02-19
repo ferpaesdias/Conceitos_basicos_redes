@@ -205,9 +205,8 @@ flowchart LR
 
 ### Ethernet Frame (Quadro Ethernet)
 
-| | | | | | | |
-| --- | --- | --- | --- | --- | --- | --- |
 | Preamble | Start Frame Delimiter | Destination MAC Address | Source MAC Address | Length or Type | Data | FCS |
+| --- | --- | --- | --- | --- | --- | --- |
 | 7 bytes | 1 byte | 6 bytes | 6 bytes | 2 bytes | 46-1500 bytes | 4 bytes |
 
 <br>
